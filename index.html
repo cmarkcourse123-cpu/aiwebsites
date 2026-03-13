@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>BeanCraft Coffee Startup</title>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;}
+  body{color:#2c2c2c;line-height:1.6;background:#fafafa;}
+  header, section, footer{max-width:1100px;margin:0 auto;padding:2rem 1rem;}
+  header{display:flex;flex-direction:column;align-items:center;text-align:center;padding-top:4rem;padding-bottom:5rem;background:#5D2E0F;color:#fff;background:linear-gradient(135deg,#6F4E37,#362011);}
+  header h1{font-size:2.8rem;margin-bottom:.5rem;letter-spacing:1.2px;}
+  header p{font-size:1.15rem;opacity:0.9;max-width:420px;margin-bottom:2rem;}
+  header a{background:#FF6F3C;color:#fff;padding:0.9rem 2.2rem;border-radius:30px;text-decoration:none;font-weight:600;transition:background 0.3s ease;}
+  header a:hover{background:#e05929;}
+  .features, .benefits, .testimonials, .pricing, form{margin-bottom:4rem;}
+  .grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:2rem;}
+  .card{background:#fff;border-radius:8px;box-shadow:0 3px 10px rgb(0 0 0 / 0.1);padding:1.8rem;}
+  .card h3{margin-bottom:0.8rem;color:#5D2E0F;}
+  .features svg, .benefits svg {width:36px;height:36px;color:#FF6F3C;vertical-align:middle;margin-right:0.5rem;}
+  .testimonial{font-style:italic;position:relative;padding-left:2rem;}
+  .testimonial::before{content:"“";font-size:3rem;color:#FF6F3C;position:absolute;left:0;top:-10px;}
+  .testimonial cite{display:block;margin-top:1rem;font-style:normal;font-weight:600;color:#5D2E0F;}
+  .pricing .card {text-align:center;display:flex;flex-direction:column;justify-content:space-between;}
+  .pricing h3{margin-bottom:.3rem;}
+  .pricing .price{font-size:2rem;color:#FF6F3C;margin:1rem 0;}
+  .pricing ul{list-style:none;margin:1rem 0 2rem;text-align:left;padding-left:1.2rem;}
+  .pricing ul li{margin-bottom:.5rem;}
+  .btn-primary{background:#FF6F3C;color:#fff;padding:0.7rem 1.8rem;border:none;border-radius:30px;cursor:pointer;font-weight:600;transition:background 0.25s ease;}
+  .btn-primary:hover{background:#e05929;}
+  form{max-width:480px;margin:0 auto;}
+  label{display:block;margin-bottom:0.3rem;font-weight:600;color:#5D2E0F;}
+  input, textarea{width:100%;padding:0.7rem;margin-bottom:1.2rem;border:1.5px solid #ccc;border-radius:6px;transition:border-color 0.3s ease;}
+  input:focus, textarea:focus{outline:none;border-color:#FF6F3C;background:#fff;}
+  textarea{resize:vertical;min-height:100px;}
+  @media (max-width:600px){header h1{font-size:2.2rem;}}
+</style>
+</head>
+<body>
+<header>
+  <h1>BeanCraft Coffee</h1>
+  <p>Crafting the perfect cup from seed to sip. Fresh, ethical, and irresistibly smooth coffee tailored for true enthusiasts.</p>
+  <a href="#pricing">Get Started</a>
+</header>
+
+<section class="features" aria-label="Features">
+  <h2 style="text-align:center; margin-bottom:2rem; color:#5D2E0F;">Our Features</h2>
+  <div class="grid3">
+    <div class="card">
+      <h3><svg fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v18m8-9H4"/></svg>Single-Origin Beans</h3>
+      <p>Sourced from dedicated farms worldwide to ensure unique, high-quality flavor profiles in every batch.</p>
+    </div>
+    <div class="card">
+      <h3><svg fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="7" r="4"/><path d="M6 21v-2a4 4 0 018 0v2"/></svg>Fresh Roasting</h3>
+      <p>Roasted weekly in small batches to lock in freshness and complexity that excites your palate.</p>
+    </div>
+    <div class="card">
+      <h3><svg fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12h20M12 2v20"/></svg>Custom Blends</h3>
+      <p>Mix and match beans to create your signature blend, designed to suit your taste and lifestyle.</p>
+    </div>
+  </div>
+</section>
+
+<section class="benefits" aria-label="Benefits">
+  <h2 style="text-align:center; margin-bottom:2rem; color:#5D2E0F;">Why Choose BeanCraft?</h2>
+  <div class="grid3">
+    <div class="card">
+      <h3><svg fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>Ethical & Sustainable</h3>
+      <p>Committed to fair trade and eco-friendly processes that give back to coffee-growing communities.</p>
+    </div>
+    <div class="card">
+      <h3><svg fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 10l5 5 5-5"/></svg>Convenient Delivery</h3>
+      <p>Flexible subscription plans delivered right to your door, so you never run out of your favorite coffee.</p>
+    </div>
+    <div class="card">
+      <h3><svg fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 100 20 10 10 0 000-20z"/></svg>Expert Support</h3>
+      <p>Our coffee experts are here to guide your selections and brewing tips for a perfect cup every time.</p>
+    </div>
+  </div>
+</section>
+
+<section class="testimonials" aria-label="Testimonials" style="max-width:650px;margin:auto 1rem 4rem;">
+  <h2 style="text-align:center; margin-bottom:2rem; color:#5D2E0F;">What Our Customers Say</h2>
+  <blockquote class="testimonial">
+    BeanCraft transformed my mornings: the freshness and flavor are unmatched. Their personalized blends make every cup feel special.
+    <cite>– Sarah L.</cite>
+  </blockquote>
+  <blockquote class="testimonial" style="margin-top:3rem;">
+    The ethical approach and consistent quality keep me loyal. Plus, the delivery service is super convenient – coffee should always be this easy!
+    <cite>– Jamal K.</cite>
+  </blockquote>
+</section>
+
+<section class="pricing" aria-label="Pricing Tiers">
+  <h2 style="text-align:center; margin-bottom:2rem; color:#5D2E0F;">Pricing Plans</h2>
+  <div class="grid3">
+    <div class="card">
+      <h3>Starter</h3>
+      <p class="price">$12<span style="font-size:1rem;color:#777;">/bag</span></p>
+      <ul>
+        <li>Single Origin Beans</li>
+        <li>250g Fresh Roast</li>
+        <li>Monthly Delivery</li>
+      </ul>
+      <button class="btn-primary" aria-label="Choose Starter plan">Choose</button>
+    </div>
+    <div class="card" style="border: 2px solid #FF6F3C;">
+      <h3>Pro</h3>
+      <p class="price">$30<span style="font-size:1rem;color:#777;">/month</span></p>
+      <ul>
+        <li>2 Bags, Custom Blends</li>
+        <li>Flexible Delivery</li>
+        <li>Priority Support</li>
+      </ul>
+      <button class="btn-primary" aria-label="Choose Pro plan">Choose</button>
+    </div>
+    <div class="card">
+      <h3>Ultimate</h3>
+      <p class="price">$50<span style="font-size:1rem;color:#777;">/month</span></p>
+      <ul>
+        <li>4 Bags, Personalized Batch</li>
+        <li>Exclusive Beans</li>
+        <li>Free Brewing Guide</li>
+      </ul>
+      <button class="btn-primary" aria-label="Choose Ultimate plan">Choose</button>
+    </div>
+  </div>
+</section>
+
+<section aria-label="Contact Form">
+  <h2 style="text-align:center; margin-bottom:2rem; color:#5D2E0F;">Get in Touch</h2>
+  <form>
+    <label for="name">Name</label>
+    <input id="name" type="text" name="name" placeholder="Your full name" required />
+
+    <label for="email">Email</label>
+    <input id="email" type="email" name="email" placeholder="you@example.com" required />
+
+    <label for="message">Message</label>
+    <textarea id="message" name="message" placeholder="Your message" required></textarea>
+
+    <button type="submit" class="btn-primary">Send Message</button>
+  </form>
+</section>
+
+</body>
+</html>
