@@ -1,0 +1,292 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Brewly - Your Coffee, Perfected</title>
+<style>
+  :root {
+    --primary: #6f4e37;
+    --secondary: #d9b382;
+    --background: #fef8f5;
+    --text-dark: #3b2f2f;
+    --text-light: #fff;
+    --accent: #c47e3d;
+  }
+  * {
+    box-sizing: border-box;
+  }
+  body {
+    margin:0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: var(--background);
+    color: var(--text-dark);
+    line-height: 1.6;
+  }
+  a {
+    color: var(--accent);
+    text-decoration: none;
+  }
+  a:hover {
+    text-decoration: underline;
+  }
+  header, section {
+    padding: 4rem 1.5rem 2rem;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  .btn {
+    display: inline-block;
+    background: var(--primary);
+    color: var(--text-light);
+    padding: 0.75rem 2rem;
+    border-radius: 30px;
+    font-weight: 600;
+    transition: background 0.3s;
+    border: none;
+    cursor: pointer;
+    font-size: 1.1rem;
+  }
+  .btn:hover {
+    background: var(--accent);
+  }
+  /* Hero */
+  .hero {
+    min-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    background: linear-gradient(to bottom right, var(--primary), var(--accent));
+    color: white;
+    padding: 0 1rem;
+  }
+  .hero h1 {
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    margin-bottom: 1rem;
+    font-weight: 900;
+  }
+  .hero p {
+    font-size: 1.2rem;
+    max-width: 650px;
+    margin: 0 auto 2rem;
+    font-weight: 500;
+  }
+  /* Features */
+  .features {
+    background: white;
+    padding-top: 3rem;
+  }
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+  .feature-item {
+    background: var(--secondary);
+    padding: 2rem 1.5rem;
+    border-radius: 10px;
+    color: var(--text-dark);
+    box-shadow: 0 4px 6px rgb(0 0 0 / 0.1);
+    text-align: center;
+  }
+  .feature-item h3 {
+    margin-bottom: 0.75rem;
+    font-weight: 700;
+  }
+  /* Benefits */
+  .benefits {
+    padding-bottom: 3rem;
+  }
+  .benefits-content {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 4rem;
+  }
+  .benefits-text {
+    flex: 1 1 350px;
+  }
+  .benefits-text h2 {
+    font-size: 2.8rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+  }
+  .benefits-text p {
+    font-size: 1.15rem;
+    color: #5a4639;
+    line-height: 1.5;
+  }
+  .benefits-image {
+    flex: 1 1 350px;
+    text-align: center;
+  }
+  .benefits-image img {
+    max-width: 100%;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgb(0 0 0 / 0.15);
+  }
+  /* Testimonials */
+  .testimonials {
+    background: white;
+    text-align: center;
+    padding-bottom: 3rem;
+  }
+  .testimonials h2 {
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+  }
+  .testimonial-list {
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
+  }
+  .testimonial {
+    background: var(--secondary);
+    padding: 2rem;
+    border-radius: 12px;
+    color: var(--text-dark);
+    box-shadow: 0 4px 7px rgb(0 0 0 / 0.1);
+  }
+  .testimonial p {
+    font-style: italic;
+    margin-bottom: 1rem;
+  }
+  .testimonial .author {
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--primary);
+  }
+  /* Pricing */
+  .pricing {
+    padding-bottom: 3rem;
+  }
+  .pricing h2 {
+    text-align: center;
+    font-weight: 700;
+    margin-bottom: 2rem;
+  }
+  .pricing-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
+    gap: 2rem;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  .card {
+    background: var(--secondary);
+    border-radius: 15px;
+    padding: 2.5rem 2rem;
+    text-align: center;
+    color: var(--text-dark);
+    box-shadow: 0 6px 12px rgb(0 0 0 / 0.12);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .card h3 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+  }
+  .card .price {
+    font-size: 2.6rem;
+    font-weight: 900;
+    margin-bottom: 1rem;
+    color: var(--primary);
+  }
+  .card ul {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 1.8rem;
+    text-align: left;
+  }
+  .card ul li {
+    margin-bottom: 0.7rem;
+    padding-left: 1.2rem;
+    position: relative;
+  }
+  .card ul li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: var(--primary);
+    font-weight: 700;
+  }
+  .card .btn {
+    align-self: center;
+    width: 100%;
+    max-width: 220px;
+  }
+  /* Contact Form */
+  .contact {
+    background: white;
+    padding: 4rem 1rem 6rem;
+  }
+  .contact h2 {
+    text-align: center;
+    font-weight: 700;
+    margin-bottom: 2rem;
+  }
+  form {
+    max-width: 600px;
+    margin: 0 auto;
+    background: var(--secondary);
+    padding: 2rem 2.5rem 3rem;
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgb(0 0 0 / 0.12);
+  }
+  label {
+    display: block;
+    margin-bottom: 0.3rem;
+    font-weight: 600;
+    color: var(--primary);
+  }
+  input, textarea {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    margin-bottom: 1.25rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-family: inherit;
+    box-shadow: inset 0 2px 6px rgb(0 0 0 / 0.1);
+    resize: vertical;
+  }
+  input:focus, textarea:focus {
+    outline: 2px solid var(--primary);
+    background: #fff;
+  }
+  textarea {
+    min-height: 100px;
+  }
+  /* Footer */
+  footer {
+    text-align: center;
+    padding: 1.5rem 1rem;
+    font-size: 0.9rem;
+    color: var(--primary);
+  }
+  /* Responsive */
+  @media (max-width: 600px) {
+    .benefits-content {
+      flex-direction: column;
+      gap: 2rem;
+    }
+    .benefits-text, .benefits-image {
+      flex: 1 1 100%;
+    }
+  }
+</style>
+</head>
+<body>
+<header class="hero" role="banner">
+  <h1>Brewly - Your Coffee, Perfected</h1>
+  <p>Discover handcrafted coffee solutions designed to fuel your passion and power your day.</p>
+  <button class="btn" type="button" aria-label="Get Started with Brewly">Get Started</button>
+</header>
+
+<section class="features" aria-labelledby="features-title">
+  <
