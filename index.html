@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>BrewCraft - Premium Coffee Startup</title>
+<style>
+  :root {
+    --primary-color: #6f4e37;
+    --secondary-color: #d2b48c;
+    --accent-color: #cda15c;
+    --background-color: #fdf9f3;
+    --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    --max-width: 1200px;
+  }
+  * {
+    box-sizing: border-box;
+  }
+  body {
+    margin: 0;
+    font-family: var(--font-family);
+    background: var(--background-color);
+    color: #3a3a3a;
+    line-height: 1.6;
+  }
+  a {
+    color: var(--primary-color);
+    text-decoration: none;
+  }
+  header, main, footer {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+  .hero {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    color: #fff;
+    text-align: center;
+    padding: 0 1rem;
+  }
+  .hero h1 {
+    font-size: 3.5rem;
+    margin-bottom: 0.5rem;
+    font-weight: 900;
+    letter-spacing: -1px;
+  }
+  .hero p {
+    font-size: 1.25rem;
+    margin-bottom: 2rem;
+    max-width: 600px;
+  }
+  .btn-primary {
+    background: #fff;
+    color: var(--primary-color);
+    border: none;
+    padding: 0.75rem 2rem;
+    font-size: 1.1rem;
+    border-radius: 3rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  .btn-primary:hover,
+  .btn-primary:focus {
+    background: var(--secondary-color);
+    outline: none;
+  }
+  section {
+    padding: 4rem 0;
+  }
+  h2.section-title {
+    text-align: center;
+    font-size: 2.75rem;
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+  }
+  p.section-subtitle {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto 3rem auto;
+    color: #7a705c;
+    font-size: 1.125rem;
+  }
+  .features-grid, .benefits-grid, .testimonials-grid, .pricing-cards {
+    display: grid;
+    grid-gap: 2.5rem;
+  }
+
+  /* Features & Benefits grids */
+  .features-grid, .benefits-grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  }
+  .feature, .benefit {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(111, 78, 55, 0.12);
+    padding: 2rem;
+    text-align: center;
+    transition: transform 0.3s ease;
+  }
+  .feature:hover, .benefit:hover {
+    transform: translateY(-8px);
+  }
+  .feature-icon, .benefit-icon {
+    font-size: 3rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+  }
+  .feature h3, .benefit h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.75rem;
+    color: var(--primary-color);
+  }
+  .feature p, .benefit p {
+    color: #5a4f3c;
+    font-size: 1rem;
+  }
+
+  /* Testimonials */
+  .testimonials-grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  }
+  .testimonial {
+    background: #fff;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(111, 78, 55, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-style: italic;
+    color: #4a4133;
+  }
+  .testimonial-text {
+    flex-grow: 1;
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+  }
+  .testimonial-author {
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--primary-color);
+    text-align: right;
+  }
+
+  /* Pricing */
+  .pricing-cards {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  }
+  .pricing-card {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 8px 22px rgba(111, 78, 55, 0.15);
+    padding: 2.5rem 2rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+  }
+  .pricing-card.highlight {
+    border: 3px solid var(--primary-color);
+    box-shadow: 0 12px 32px rgba(111, 78, 55, 0.25);
+  }
+  .pricing-title {
+    font-size: 1.75rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: var(--primary-color);
+  }
+  .pricing-price {
+    font-size: 2.5rem;
+    font-weight: 900;
+    margin-bottom: 1.25rem;
+    color: var(--accent-color);
+  }
+  .pricing-period {
+    font-size: 1rem;
+    color: #7a705c;
+    margin-bottom: 1.5rem;
+  }
+  .pricing-features {
+    flex-grow: 1;
+    text-align: left;
+    margin-bottom: 2rem;
+  }
+  .pricing-features li {
+    margin-bottom: 0.75rem;
+    color: #5a4f3c;
+    font-size: 1rem;
+    list-style: inside disc;
+  }
+  .btn-secondary {
+    background: var(--primary-color);
+    border: none;
+    color: #fff;
+    font-weight: 700;
+    padding: 0.9rem 2rem;
+    border-radius: 3rem;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    align-self: center;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  .btn-secondary:hover,
+  .btn-secondary:focus {
+    background: var(--accent-color);
+    outline: none;
+  }
+
+  /* Contact Form */
+  .contact-container {
+    max-width: 500px;
+    margin: 0 auto;
+  }
+  form {
+    background: #fff;
+    padding: 2.5rem 2rem;
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(111, 78, 55, 0.1);
+    display: flex;
+    flex-direction: column;
+  }
+  label {
+    font-weight: 600;
+    color: var(--primary-color);
+    margin-bottom: 0.4rem;
+    font-size: 1rem;
+  }
+  input, textarea {
+    padding: 0.75rem 1rem;
+    margin-bottom: 1.5rem;
+    border-radius: 6px;
+    border: 1.5px solid #cfc7b9;
+    font-size: 1rem;
+    font-family: var(--font-family);
+    resize: vertical;
+    transition: border-color 0.2s ease;
+  }
+  input:focus, textarea:focus {
+    border-color: var(--primary-color);
+    outline: none;
+  }
+  textarea {
+    min-height: 120px;
+  }
+  .btn-submit {
+    background: var(--accent-color);
+    color: #fff;
+    border: none;
+    font-weight: 700;
+    padding: 1rem 2rem;
+    font-size: 1.15rem;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  .btn-submit:hover,
+  .btn-submit:focus {
+    background: var(--primary-color);
+    outline: none;
+  }
+
+  /* Responsive and utility */
+  @media (max-width: 768px) {
+    .hero h1 {
+      font-size: 2.5rem;
+    }
+    section {
+      padding: 3rem 0;
+    }
+  }
+</style>
+</head>
+<body>
+
+<header class="hero" role="banner" aria-label="BrewCraft premium coffee startup hero section
