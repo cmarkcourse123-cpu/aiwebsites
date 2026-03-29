@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Conscious Coffee</title>
+<style>
+  :root {
+    --primary-color: #6b4f4f;
+    --secondary-color: #d9a066;
+    --background-color: #faf7f5;
+    --text-color: #333;
+    --accent-color: #bc6c25;
+    --font-sans: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  * {
+    box-sizing: border-box;
+  }
+  body {
+    margin: 0;
+    font-family: var(--font-sans);
+    background: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  a {
+    color: var(--primary-color);
+    text-decoration: none;
+  }
+  a:hover, a:focus {
+    text-decoration: underline;
+  }
+  header, section {
+    padding: 4rem 1.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+  /* Hero Section */
+  .hero {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+    text-align: center;
+    background: linear-gradient(135deg, #6b4f4f 0%, #d9a066 100%);
+    color: white;
+    padding: 0 1.5rem;
+  }
+  .hero h1 {
+    font-weight: 900;
+    font-size: clamp(2.75rem, 5vw, 4.5rem);
+    margin-bottom: 1rem;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+  }
+  .hero p {
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    max-width: 540px;
+    margin-bottom: 2rem;
+    font-weight: 500;
+  }
+  .hero button {
+    background-color: var(--secondary-color);
+    border: none;
+    color: white;
+    padding: 0.75rem 2rem;
+    font-size: 1.125rem;
+    font-weight: 700;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 4px 15px rgb(217 160 102 / 0.5);
+  }
+  .hero button:hover, .hero button:focus {
+    background-color: var(--accent-color);
+    outline: none;
+  }
+  /* Sections with grid */
+  .grid-3 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 2.5rem;
+  }
+  .grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+  }
+  /* Feature & Benefits Cards */
+  .card {
+    background: white;
+    padding: 2rem 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 5px 10px rgb(0 0 0 / 0.07);
+    text-align: center;
+    transition: box-shadow 0.3s ease;
+  }
+  .card:hover, .card:focus-within {
+    box-shadow: 0 10px 25px rgb(0 0 0 / 0.1);
+  }
+  .card h3 {
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+    color: var(--primary-color);
+    font-size: 1.375rem;
+  }
+  .card p {
+    font-size: 1rem;
+    color: #555;
+  }
+  /* Testimonials */
+  .testimonial {
+    background: white;
+    padding: 2rem 2rem 2rem 3rem;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgb(0 0 0 / 0.06);
+    position: relative;
+    font-style: italic;
+    color: #444;
+  }
+  .testimonial::before {
+    content: "“";
+    font-size: 4rem;
+    position: absolute;
+    left: 1rem;
+    top: 0.1rem;
+    color: var(--secondary-color);
+    font-weight: 900;
+    font-family: serif;
+  }
+  .testimonial-footer {
+    margin-top: 1.25rem;
+    font-style: normal;
+    font-weight: 700;
+    color: var(--primary-color);
+  }
+  /* Pricing */
+  .pricing-card {
+    background: white;
+    border-radius: 10px;
+    padding: 2.5rem 2rem;
+    box-shadow: 0 8px 20px rgb(0 0 0 / 0.07);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .pricing-card:hover, .pricing-card:focus-within {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgb(0 0 0 / 0.12);
+  }
+  .pricing-title {
+    font-weight: 700;
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: var(--primary-color);
+  }
+  .pricing-price {
+    font-size: 2.75rem;
+    font-weight: 900;
+    margin: 0.5rem 0 1.25rem;
+    color: var(--accent-color);
+  }
+  .pricing-description {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 1.75rem;
+  }
+  .pricing-features {
+    text-align: left;
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 2rem;
+  }
+  .pricing-features li {
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: #444;
+    position: relative;
+    padding-left: 1.25rem;
+  }
+  .pricing-features li::before {
+    content: "✔";
+    position: absolute;
+    left: 0;
+    color: var(--secondary-color);
+    font-weight: 700;
+  }
+  .btn-pricing {
+    background-color: var(--secondary-color);
+    border: none;
+    color: white;
+    padding: 0.75rem 1.75rem;
+    font-weight: 700;
+    font-size: 1.1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgb(217 160 102 / 0.5);
+    transition: background-color 0.3s ease;
+  }
+  .btn-pricing:hover, .btn-pricing:focus {
+    background-color: var(--accent-color);
+    outline: none;
+  }
+  /* Contact Form */
+  form {
+    background: white;
+    padding: 2.5rem 2rem;
+    border-radius: 8px;
+    max-width: 600px;
+    margin: 0 auto;
+    box-shadow: 0 5px 15px rgb(0 0 0 / 0.08);
+  }
+  label {
+    display: block;
+    margin-bottom: 0.4rem;
+    font-weight: 600;
+    color: var(--primary-color);
+  }
+  input, textarea {
+    width: 100%;
+    padding: 0.6rem 1rem;
+    margin-bottom: 1.25rem;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: border-color 0.25s ease;
+    font-family: inherit;
+    resize: vertical;
+  }
+  input:focus, textarea:focus {
+    border-color: var(--secondary-color);
+    outline: none;
+  }
+  button[type="submit"] {
+    background-color: var(--primary-color);
+    border: none;
+    color: white;
+    font-weight: 700;
+    font-size: 1.125rem;
+    padding: 0.75rem 2rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 5px 15px rgb(107 79 79 / 0.6);
+  }
+  button[type="submit"]:hover, button[type="submit"]:focus {
+    background-color: var(--accent-color);
+    outline: none;
+  }
+  /* Responsive */
+  @media (max-width:
