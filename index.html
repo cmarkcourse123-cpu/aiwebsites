@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Nostalgix Ketchup</title>
+<style>
+  :root {
+    --clr-primary: #d32f2f;
+    --clr-secondary: #f44336;
+    --clr-light: #fff;
+    --clr-dark: #212121;
+    --clr-grey-light: #f5f5f5;
+    --clr-grey-dark: #616161;
+    --font-sans: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    margin: 0;
+    font-family: var(--font-sans);
+    color: var(--clr-dark);
+    background-color: var(--clr-light);
+    line-height: 1.6;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  header.hero {
+    background: linear-gradient(135deg, var(--clr-primary) 0%, var(--clr-secondary) 100%);
+    color: var(--clr-light);
+    text-align: center;
+    padding: 100px 20px 80px;
+  }
+
+  header.hero img {
+    width: 120px;
+    margin-bottom: 20px;
+  }
+
+  header.hero h1 {
+    font-weight: 700;
+    font-size: 2.8rem;
+    max-width: 600px;
+    margin: 0 auto 20px;
+    line-height: 1.2;
+  }
+
+  main {
+    max-width: 1080px;
+    margin: -60px auto 40px;
+    padding: 0 20px 60px;
+  }
+
+  /* Section styling */
+  section {
+    background: var(--clr-light);
+    margin-bottom: 60px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgb(0 0 0 / 0.1);
+    padding: 40px 30px;
+  }
+
+  h2 {
+    font-weight: 700;
+    font-size: 2rem;
+    margin-bottom: 30px;
+    text-align: center;
+    color: var(--clr-primary);
+  }
+
+  /* Features and Benefits grid */
+  .grid-3 {
+    display: grid;
+    gap: 24px;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  }
+
+  .card {
+    background: var(--clr-grey-light);
+    padding: 24px 20px;
+    border-radius: 6px;
+    text-align: center;
+    box-shadow: inset 0 0 6px rgb(0 0 0 / 0.05);
+    transition: transform 0.25s ease;
+  }
+
+  .card:hover {
+    transform: translateY(-6px);
+  }
+
+  .card h3 {
+    color: var(--clr-secondary);
+    margin-bottom: 12px;
+    font-size: 1.25rem;
+  }
+
+  .card p {
+    font-size: 1rem;
+    color: var(--clr-grey-dark);
+  }
+
+  /* Testimonials */
+  .testimonials {
+    max-width: 720px;
+    margin: 0 auto;
+  }
+
+  blockquote {
+    background: var(--clr-grey-light);
+    border-left: 5px solid var(--clr-primary);
+    padding: 20px 25px;
+    margin-bottom: 25px;
+    font-style: italic;
+    color: var(--clr-grey-dark);
+    border-radius: 4px;
+  }
+
+  blockquote footer {
+    margin-top: 12px;
+    text-align: right;
+    font-weight: 600;
+    color: var(--clr-secondary);
+    font-style: normal;
+  }
+
+  /* Pricing cards */
+  .pricing-cards {
+    display: grid;
+    gap: 24px;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  }
+
+  .pricing-card {
+    background: var(--clr-grey-light);
+    padding: 32px 24px;
+    border-radius: 8px;
+    box-shadow: inset 0 0 8px rgb(0 0 0 / 0.07);
+    text-align: center;
+    transition: box-shadow 0.3s ease;
+  }
+
+  .pricing-card:hover {
+    box-shadow: 0 8px 20px rgb(211 47 47 / 0.4);
+  }
+
+  .pricing-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 12px;
+    color: var(--clr-secondary);
+  }
+
+  .price {
+    font-size: 2.4rem;
+    font-weight: 700;
+    color: var(--clr-primary);
+    margin-bottom: 18px;
+  }
+
+  ul.features-list {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 24px;
+    color: var(--clr-grey-dark);
+    font-size: 1rem;
+  }
+
+  ul.features-list li {
+    margin-bottom: 10px;
+  }
+
+  .btn-pricing {
+    display: inline-block;
+    background: var(--clr-primary);
+    color: var(--clr-light);
+    padding: 12px 28px;
+    border-radius: 30px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background-color 0.2s ease;
+  }
+
+  .btn-pricing:hover,
+  .btn-pricing:focus {
+    background: var(--clr-secondary);
+  }
+
+  /* Contact Form */
+  form {
+    max-width: 480px;
+    margin: 0 auto;
+    background: var(--clr-grey-light);
+    padding: 32px 28px;
+    border-radius: 8px;
+    box-shadow: inset 0 0 8px rgb(0 0 0 / 0.05);
+  }
+
+  label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 6px;
+    color: var(--clr-primary);
+  }
+
+  input[type="text"],
+  input[type="email"],
+  textarea {
+    width: 100%;
+    padding: 12px 14px;
+    margin-bottom: 18px;
+    border: 1.5px solid var(--clr-grey-dark);
+    border-radius: 6px;
+    font-size: 1rem;
+    font-family: var(--font-sans);
+    resize: vertical;
+    transition: border-color 0.25s ease;
+  }
+
+  input[type="text"]:focus,
+  input[type="email"]:focus,
+  textarea:focus {
+    border-color: var(--clr-primary);
+    outline: none;
+    background: #fff;
+  }
+
+  button[type="submit"] {
+    background: var(--clr-primary);
+    color: var(--clr-light);
+    border: none;
+    padding: 14px 28px;
+    border-radius: 30px;
+    font-weight: 700;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    width: 100%;
+  }
+
+  button[type="submit"]:hover,
+  button[type="submit"]:focus {
+    background: var(--clr-secondary);
+  }
+
+  /* Responsive typography */
+  @media (min-width: 600px) {
+    header.hero h1 {
+      font-size: 3.6rem;
+    }
+  }
+
+</style>
+</head>
+<body>
+<header class="hero" role="banner">
+  <img src="logo.png" alt="Nostalgix Ketchup" />
+  <h1>You remember this. You just didn’t expect to taste it again.</h1>
+</header>
+<main>
+  <section aria-labelledby="features-heading">
+    <h2 id="features-heading">Features</h2>
+    <div class="grid-3">
+      <article class="card" role="region" aria-label="Classic recipe feature">
+        <h3>Classic Recipe</h3>
+        <p>Authentic nostalgia in every squeeze with our carefully crafted timeless ketchup flavor.</p>
+      </article>
+      <article class="card" role="region" aria-label="All-natural ingredients feature">
+        <h3>All-Natural Ingredients</h3>
+        <p>Made from ripe tomatoes and organic spices for a healthy, delicious taste.</p>
+      </article>
+      <article class="card" role="region" aria-label="No artificial preservatives feature">
+        <h3>No Artificial Preservatives</h3>
+        <p>Pure goodness you can trust, with no additives or chemical preservatives.</p>
+      </article>
+    </div>
+  </section>
+
+  <section aria-labelledby="benefits-heading">
+    <h2 id="benefits-heading">Benefits</h2>
+    <div class="grid-3">
+      <article class="card" role="region" aria-label="Great on everything benefit">
+        <h3>Great on Everything</h3>
+        <p>Perfect companion to fries, burgers, sandwiches, and more.</p>
+      </article>
+      <article class="card" role="region" aria-label="Brings back fond memories benefit">
+        <h3>Brings Back Fond Memories</h3>
+        <p>Evokes the familiar taste that reminds you of good times past.</p>
+      </article>
+      <article class="card" role="region" aria-label="Sustainable packaging benefit">
+        <h3>Sustainable Packaging</h3>
+        <p>Eco-friendly, recyclable bottles to help protect the planet.</p>
+      </article>
+    </div>
+  </section>
+
+  <section aria-labelledby="testimonials-heading">
+    <h2 id="testimonials-heading">Testimonials</h2>
+    <div class="testimonials">
+      <blockquote>
+        "Nostalgix ketchup transported me right back to my childhood dinners. The flavor is spot on and so fresh!"
+        <footer>– Jamie L.</footer>
+      </blockquote>
+      <blockquote>
+        "I’ve tried tons of ketchups, but Nostalgix is the only one that truly tastes like the original I loved growing up."
+        <footer>– Marcus W.</footer>
+      </blockquote>
+      <blockquote>
+        "Five stars for taste and for the eco-friendly packaging. Finally a ketchup I can feel good about buying."
+        <footer>– Avery R.</footer>
+      </blockquote>
+    </div>
+  </section>
+
+  <section aria-labelledby="pricing-heading">
+    <h2 id="pricing-heading">Pricing</h2>
+    <div class="pricing-cards">
+      <article class="pricing-card" role="region" aria-label="Single bottle pricing plan">
+        <h3>Single Bottle</h3>
+        <p class="price">$4.99</p>
+        <ul class="features-list">
+          <li>One 20oz bottle</li>
+          <li>Classic Nostalgix flavor</li>
+          <li>Free sustainable bottle</li>
+        </ul>
+        <a href="#" class="btn-pricing" aria-label="Buy Single Bottle now">Buy Now</a>
+      </article>
+      <article class="pricing-card" role="region" aria-label="Three pack bottles pricing plan">
+        <h3>Three Pack</h3>
+        <p class="price">$13.99</p>
+        <ul class="features-list">
+          <li>Three 20oz bottles</li>
+          <li>Save 7% off single price</li>
+          <li>Free shipping included</li>
+        </ul>
+        <a href="#" class="btn-pricing" aria-label="Buy Three Pack now">Buy Now</a>
+      </article>
+      <article class="pricing-card" role="region" aria-label="Monthly subscription pricing plan">
+        <h3>Monthly Subscription</h3>
+        <p class="price">$12.49/mo</p>
+        <ul class="features-list">
+          <li>Two 20oz bottles monthly</li>
+          <li>Save 15% and free shipping</li>
+          <li>Skip or cancel anytime</li>
+        </ul>
+        <a href="#" class="btn-pricing" aria-label="Subscribe Monthly now">Subscribe</a>
+      </article>
+    </div>
+  </section>
+
+  <section aria-labelledby="contact-heading">
+    <h2 id="contact-heading">Contact Us</h2>
+    <form action="#" method="post" novalidate>
+      <label for="name">Name</label>
+      <input type="text" id="name" name="name" placeholder="Your full name" required autocomplete="name" />
+      
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" placeholder="you@example.com" required autocomplete="email" />
+      
+      <label for="message">Message</label>
+      <textarea id="message" name="message" rows="5" placeholder="Write your message here..." required></textarea>
+      
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+</main>
+</body>
+</html>
